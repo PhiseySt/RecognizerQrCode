@@ -45,8 +45,9 @@ namespace qr_code
         private void button4_Click(object sender, EventArgs e)
         {
             var decoder = new QRCodeDecoder(); // создаём "раскодирование изображения"
-            var utfMessage = decoder.decode(new QRCodeBitmapImage(pictureBox1.Image as Bitmap), Encoding.UTF8);
+            var utfMessage = decoder.Decode(new QRCodeBitmapImage(pictureBox1.Image as Bitmap), Encoding.UTF8);
             if (utfMessage == null) throw new ArgumentNullException(nameof(utfMessage));
+
             MessageBox.Show(utfMessage); //в MessageBox'e программа запишет раскодированное сообщение с изображения, которое предоврительно будет переведено из pictureBox'a в класс Bitmap, чтобы мы смогли с этим изображением работать. 
         }
     }
